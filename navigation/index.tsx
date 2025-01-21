@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import FruitDetailsScreen from 'features/home/screens/fruit-details.screen';
 
-import TabNavigator from './tab-navigator';
+import TabNavigator from './TabNavigator';
 import Modal from '../screens/modal';
 
 export type RootStackParamList = {
