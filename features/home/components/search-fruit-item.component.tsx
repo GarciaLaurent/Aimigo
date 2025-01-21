@@ -10,10 +10,9 @@ export const SearchFruitItem = (props: SearchFruitItemProps) => {
   const navigation = useNavigation();
 
   const handleOnPress = (item: any) => {
-    console.log('item', item);
-    // navigation.navigate('FruitnDetailsScreen', {
-    //   id: item?.id,
-    // });
+    navigation.navigate('FruitDetails', {
+      item,
+    });
   };
 
   return (

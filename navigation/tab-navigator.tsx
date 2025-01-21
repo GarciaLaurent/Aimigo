@@ -2,9 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { RootStackParamList } from '.';
+import HomeStack from './HomeStack';
 import { TabBarIcon } from '../components/TabBarIcon';
 import FavoriteScreen from '../features/favorites/screens/favorite.screen';
-import HomeScreen from '../features/home/screens/home.screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,10 +18,10 @@ export default function TabLayout({ navigation }: Props) {
       }}>
       <Tab.Screen
         name="home"
-        component={HomeScreen}
+        component={HomeStack}
         options={{
-          title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          headerShown: false,
         }}
       />
       <Tab.Screen
