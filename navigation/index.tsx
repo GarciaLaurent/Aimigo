@@ -15,11 +15,6 @@ export default function RootStack() {
   return (
     <Stack.Navigator initialRouteName="TabNavigator">
       <Stack.Screen name="TabNavigator" component={TabNavigator} options={{ headerShown: false }} />
-      {/* <Stack.Screen
-          name="Modal"
-          component={Modal}
-          options={{ presentation: 'modal', headerLeft: () => null }}
-        /> */}
     </Stack.Navigator>
   );
 }
