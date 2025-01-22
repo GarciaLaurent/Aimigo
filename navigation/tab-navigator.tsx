@@ -3,7 +3,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 import { RootStackParamList } from '.';
 import HomeStack from './home-stack';
-import { TabBarIcon } from '../components/tabBar-icon.component';
+import { TabBarIcon } from '../components/tab-bar-icon.component';
 import FavoriteScreen from '../features/favorites/screens/favorite.screen';
 
 const Tab = createBottomTabNavigator();
@@ -28,7 +28,6 @@ export default function TabLayout({ navigation }: Props) {
         name="favorite"
         component={FavoriteScreen}
         options={{
-          title: 'Favoris',
           tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
           headerShown: false,
         }}
