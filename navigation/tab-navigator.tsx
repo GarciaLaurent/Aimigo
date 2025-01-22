@@ -30,6 +30,7 @@ export default function TabLayout({ navigation }: Props) {
         options={{
           title: 'Favoris',
           tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
