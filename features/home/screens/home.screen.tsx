@@ -66,6 +66,9 @@ export default function HomeScreen() {
 
   return (
     <Container>
+      <View className="m-4">
+        <Text className="text-center text-xl font-bold">Home</Text>
+      </View>
       <View className="w-full flex-1 p-4">
         <View className="h-12 w-full flex-row items-center rounded-full border-[1px] border-white bg-white px-4 pl-12 pr-9 text-black">
           <View className="absolute left-0 h-full items-center justify-center px-4 ">
