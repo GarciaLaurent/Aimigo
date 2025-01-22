@@ -2,8 +2,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { RootStackParamList } from '.';
-import HomeStack from './HomeStack';
-import { TabBarIcon } from '../components/TabBarIcon';
+import HomeStack from './home-stack';
+import { TabBarIcon } from '../components/tabBar-icon.component';
 import FavoriteScreen from '../features/favorites/screens/favorite.screen';
 
 const Tab = createBottomTabNavigator();

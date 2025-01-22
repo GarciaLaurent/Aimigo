@@ -1,11 +1,13 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import { Container } from 'components/Container';
+import { Container } from 'components/container.component';
 import { sortBy } from 'lodash';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Text, ActivityIndicator, TextInput, SafeAreaView } from 'react-native';
+import { View, Text, ActivityIndicator, TextInput } from 'react-native';
 import { FlatList, RefreshControl } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
+import { TFruit } from 'utils/types.type';
 
+import { EmptySearch } from '../components/empty-search.component';
 import { SearchFruitItem } from '../components/search-fruit-item.component';
 import { fetchData } from '../data/dataSlice';
 
@@ -17,8 +19,10 @@ export default function HomeScreen() {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const filteredData = useMemo(() => {
-    const dataFiltered = items.filter((item) =>
-      item?.name?.toLowerCase()?.includes(searchValue?.toLowerCase())
+    const dataFiltered = items.filter(
+      (item: TFruit) =>
+        item?.name?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
+        item?.family?.toLowerCase()?.includes(searchValue?.toLowerCase())
     );
     const sortedData = sortBy(dataFiltered, ['name']);
     return sortedData;
@@ -70,7 +74,7 @@ export default function HomeScreen() {
           <TextInput
             ref={inputRef}
             keyboardType="default"
-            placeholder="Rechercher"
+            placeholder="Rechercher par nom ou catégorie"
             placeholderTextColor="#B7B7B7"
             autoCapitalize="none"
             autoCorrect={false}
@@ -89,19 +93,12 @@ export default function HomeScreen() {
                 <SearchFruitItem item={item} />
               </View>
             )}
-            ItemSeparatorComponent={() => <View className="h-4" />}
-            ListEmptyComponent={
-              <View className="w-full flex-1 items-center justify-center">
-                <Text className="text-center text-lg font-bold">
-                  Aucun résultat ne correspond à votre recherche
-                </Text>
-              </View>
-            }
+            ItemSeparatorComponent={() => <View className="h-2" />}
+            ListEmptyComponent={<EmptySearch />}
             refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} />}
             refreshing={isRefreshing}
             showsVerticalScrollIndicator={false}
             onEndReachedThreshold={0.5}
-            ListFooterComponent={() => <View className="h-4" />}
           />
         </View>
       </View>
